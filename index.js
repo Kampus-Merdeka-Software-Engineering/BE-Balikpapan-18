@@ -1,25 +1,18 @@
+const express = require('express')
+const path = require('path')
+const cors = require('cors')
+const app = express()
 
-const http = require('http');
+// Router
+const apiRouter = require('./routes/api')
 
-const server = http.createServer((request, response) => {
-  console.log(request, "<<< request")
-  console.log(response, "<<< response")
+app.use(cors())
+app.use(express.json())
+app.use(express.urlencoded({ extended: false }))
+app.use(express.static(path.join(__dirname, 'public')))
 
-  if (request.url === "/") {
-    response.write("Ini halaman kosong ya ?");
-    response.end()
-  }
+// Definisikan Router pada path "/api"
+app.use('/api', apiRouter)
 
-  if (request.url === "/hallowBrow" && request.method === "GET") {
-    response.end("<h1 style='color: red;'>ini adalah halaman Hallow Brow</h1>")
-  }
-
-  if (request.url === "/balikpapan18" && request.method === "GET") {
-    response.end("balikpapan18")
-  }
-})
-
-const PORT = 4000;
-server.listen(PORT, () => {
-  console.log(`Server sedang berjalan pada url dan port http://localhost:${PORT}`)
-})
+const PORT = process.env.PORT || 3000
+app.listen(PORT, () => console.log(`Server listening on port ${PORT}`))

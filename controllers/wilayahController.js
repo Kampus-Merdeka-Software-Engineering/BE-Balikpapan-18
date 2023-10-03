@@ -25,8 +25,4 @@ async function getCost(req,res){
     .catch(err => res.send(err))
 }
 
-
-
-
-
 module.exports = {getProvince,getCity,getCost}

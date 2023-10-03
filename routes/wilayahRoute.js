@@ -18,34 +18,4 @@ wilayahRouter.get('/kota/:provId',wilayahController.getCity)
 wilayahRouter.get('/cost/:origin/:destination/:weight/:courier',wilayahController.getCost)
 
 
-
-// // Router GET province
-// wilayahRouter.get('/provinsi', (req, res) => {
-//   axios.get('/province')
-//     .then(response => res.json(response.data))
-//     .catch(err => res.send(err))
-// })
-
-// // wilayahRouter GET city by province_id
-// wilayahRouter.get('/kota/:provId', (req, res) => {
-//   const id = req.params.provId
-//   axios.get(`/city?province=${id}`)
-//     .then(response => res.json(response.data))
-//     .catch(err => res.send(err))
-// })
-
-// // wilayahRouter GET costs
-// wilayahRouter.('/ongkos/:asal/:tujuan/:berat/:kurir', (req, res) => {
-//   const param = req.params
-//   axios.post('/cost', {
-//       origin: param.asal,
-//       destination: param.tujuan,
-//       weight: param.berat,
-//       courier: param.kurir
-//     })
-//     .then(response => res.json(response.data))
-//     .catch(err => res.send(err))
-// })
-
-
 module.exports = {wilayahRouter}

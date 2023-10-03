@@ -1,0 +1,24 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Resi {
+  id        Int      @id @default(autoincrement())
+  no_resi   String   @unique
+  name      String?
+  alamat      String?
+  email      String?
+  nama_barang      String?
+  origin      String?
+  destination      String?
+  weight      String?
+  courier      String?
+}

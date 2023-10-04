@@ -6,6 +6,6 @@ const contactRouter = express.Router();
 contactRouter.get('/', contactController.getcontact);
 
 // crate contact
-contactRouter.post('/', contactController.createcontact);
+contactRouter.post('/', contactController.createContact);
 
 module.exports = { contactRouter };

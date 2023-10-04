@@ -6,9 +6,9 @@ async function getcontact(req, res) {
     res.status(200).json(contact);
 }
 
-async function createcontact(req, res) {
+async function createContact(req, res) {
     try {
-        const contactId = await contactService.createcontact(req.body);
+        const contactId = await contactService.createContact(req.body);
         res.status(201).json({ contactId });
     } catch (error) {
         console.error(error);
@@ -18,5 +18,5 @@ async function createcontact(req, res) {
 
 module.exports = {
     getcontact,
-    createcontact,
+    createContact,
 };

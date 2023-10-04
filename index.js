@@ -15,7 +15,7 @@ app.use(express.static(path.join(__dirname, 'public')))
 app.use('/api', apiRouter);
 // Definisikan Router pada path "/api"
 apiRouter.use('/', wilayahRouter)
-apiRouter.use('/', resiRouter)
+apiRouter.use('/resi', resiRouter)
 
 const PORT = process.env.PORT || 3000
 app.listen(PORT, () => console.log(`Server listening on port http://localhost:${PORT}`))

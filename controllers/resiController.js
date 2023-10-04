@@ -6,6 +6,16 @@ async function getResi(req, res)  {
   res.status(200).json(resi);
 }
 
+async function createResi(req, res) {
+  try {
+    const resiId = await resiService.createResi(req.body);
+    res.status(201).json({ resiId });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+}
+
 async function getResiById(req,res){
   const { resiId } = req.params;
   try {
@@ -23,4 +33,4 @@ async function getResiById(req,res){
   }
 }
 
-module.exports = {getResi, getResiById}
+module.exports = {getResi,createResi,getResiById}

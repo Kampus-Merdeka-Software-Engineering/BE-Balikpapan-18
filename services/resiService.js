@@ -47,4 +47,22 @@ async function getResiById(resiId) {
     }
 }
 
-module.exports = {getAllResi,createResi,getResiById}
+async function getResiByNoResi(noResi){
+    try {
+        const resi = await prisma.resi.findUnique({
+            where: {
+                no_resi: Number(noResi)
+            }
+        })
+        return resi
+    } catch (error) {
+        throw new Error(error)
+    }
+}
+
+module.exports = {
+    getAllResi, 
+    createResi,
+    getResiById,
+    getResiByNoResi
+}

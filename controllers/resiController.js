@@ -32,5 +32,26 @@ async function getResiById(req,res){
     res.status(500).json({ error: 'Internal server error' });
   }
 }
+async function getResiByNoResi(req,res){
+  const { noResi } = req.params;
+  try {
+    const resi = await resiService.getResiByNoResi(noResi);
+    if (!resi) {
+      return res.status(404).json({ error: 'Resi not found' });
+    }
+    res.status(200).json({
+      message: "Successfully fetched Resi",
+      data: resi
+    });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+}
 
-module.exports = {getResi,createResi,getResiById}
+module.exports = {
+  getResi,
+  createResi,
+  getResiById,
+  getResiByNoResi
+}

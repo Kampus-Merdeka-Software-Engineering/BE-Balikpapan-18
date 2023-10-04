@@ -9,6 +9,8 @@ resiRouter.get('/', resiController.getResi);
 resiRouter.post('/',resiController.createResi)
 
 // get resi by no resi
-resiRouter.get('/:resiId',resiController.getResiById);
+// resiRouter.get('/:resiId',resiController.getResiById);
+
+resiRouter.get('/:noResi',resiController.getResiByNoResi);
 
 module.exports = {resiRouter};

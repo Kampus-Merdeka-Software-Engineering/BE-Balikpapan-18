@@ -16,9 +16,9 @@ async function getAllResi() {
 async function getResiById(resiId) {
     try {
         const resi = await prisma.resi.findUnique({
-        where: {
-            no_resi: Number(resiId)
-        }
+            where: {
+                id: Number(resiId)
+            }
         })
         return resi
     } catch (error) {

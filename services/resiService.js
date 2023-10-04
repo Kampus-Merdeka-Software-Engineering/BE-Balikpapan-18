@@ -12,4 +12,18 @@ async function getAllResi() {
     }
 }
 
-module.exports = {getAllResi}
+// Function to get a user by ID
+async function getResiById(resiId) {
+    try {
+        const resi = await prisma.resi.findUnique({
+        where: {
+            no_resi: Number(resiId)
+        }
+        })
+        return resi
+    } catch (error) {
+        throw new Error(error)
+    }
+}
+
+module.exports = {getAllResi,getResiById}

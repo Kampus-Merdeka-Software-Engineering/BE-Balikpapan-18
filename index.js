@@ -6,6 +6,7 @@ const app = express()
 // Router
 const {wilayahRouter} = require('./routes/wilayahRoute')
 const {resiRouter} = require('./routes/resiRoute')
+const {contactRouter} = require('./routes/contactRoute')
 const apiRouter = express.Router();
 app.use(cors())
 app.use(express.json())
@@ -16,6 +17,7 @@ app.use('/api', apiRouter);
 // Definisikan Router pada path "/api"
 apiRouter.use('/', wilayahRouter)
 apiRouter.use('/resi', resiRouter)
+apiRouter.use('/contact', contactRouter)
 
 const PORT = process.env.PORT || 3000
 app.listen(PORT, () => console.log(`Server listening on port http://localhost:${PORT}`))

@@ -14,3 +14,13 @@ CREATE TABLE `Resi` (
     UNIQUE INDEX `Resi_no_resi_key`(`no_resi`),
     PRIMARY KEY (`id`)
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+-- CreateTable
+CREATE TABLE `Contact` (
+    `id` INTEGER NOT NULL AUTO_INCREMENT,
+    `name` VARCHAR(191) NULL,
+    `email` VARCHAR(191) NOT NULL,
+
+    UNIQUE INDEX `Contact_email_key`(`email`),
+    PRIMARY KEY (`id`)
+) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;

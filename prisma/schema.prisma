@@ -18,6 +18,7 @@ model Resi {
   destination String?
   weight      String?
   courier     String?
+  status      String?
 }
 
 model Contact {

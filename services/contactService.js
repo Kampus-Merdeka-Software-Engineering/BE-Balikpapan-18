@@ -14,9 +14,6 @@ async function getAllContact() {
 
 async function createContact(contact) {
     try {
-        if (!isValidEmail(email)) {
-            throw new Error('Email tidak valid');
-        }
         const createdContact = await prisma.contact.create({
             data: {
                 name: contact.name,
